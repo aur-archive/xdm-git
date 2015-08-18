@@ -1,0 +1,12 @@
+[Unit]
+Description=XDM Daemon
+
+[Service]
+PIDFile=/opt/xdm/xdm.pid
+EnvironmentFile=/etc/conf.d/xdm
+ExecStart=/usr/bin/python2 /opt/xdm/XDM.py --nolaunch --port=${PORT} --datadir=${DIR} --apiPort=${APIPORT}
+User=xdm
+Group=xdm
+
+[Install]
+WantedBy=multi-user.target
